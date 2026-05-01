@@ -45,3 +45,30 @@ const bookStore = {
 
 // Write your code here!
 
+const bookStoreTitle = document.getElementById('header');
+bookStoreTitle.textContent = bookStore.name;
+
+const bookList = document.getElementById('book-list');
+
+bookStore.books.forEach((book) => {
+  const bookContainer = document.createElement('li');
+
+  const bookTitle = document.createElement('h3');
+  bookTitle.textContent = book.title;
+
+  const bookAuthor = document.createElement('p');
+  bookAuthor.textContent = book.author;
+
+  const bookImage = document.createElement('img');
+  bookImage.src = book.imageUrl;
+
+  bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookAuthor);
+  bookContainer.appendChild(bookImage);
+
+  bookList.appendChild(bookContainer);
+});
+
+// BONUS: Delete the example placeholder element
+const placeholder = document.getElementById('delete-this');
+if (placeholder) placeholder.remove();
